@@ -1,0 +1,1 @@
+export const alphavantageApiKey = process.env.API_KEY;
