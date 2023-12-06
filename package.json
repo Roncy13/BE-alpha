@@ -48,7 +48,6 @@
     "redis": "^3.0.2",
     "swagger-ui-express": "^4.1.6",
     "tsconfig-paths": "^3.9.0",
-    "typeorm": "^0.3.0-alpha.24",
     "winston": "^3.3.3"
   },
   "devDependencies": {
