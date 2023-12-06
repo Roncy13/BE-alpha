@@ -24,4 +24,3 @@ export interface ITransformUSTradeOutput {
     'meta_data': IMetaData;
     'time_series': ITransformTimeSeries[];
 }
-

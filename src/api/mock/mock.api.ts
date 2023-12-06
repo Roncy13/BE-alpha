@@ -21,7 +21,7 @@ export class AlphavantageApi extends Api {
 
     private attachInitialParams(params: {} = {}) {
         const apiKeyParams = this.attachApiKey(params);
-        
+
         return apiKeyParams;
     }
 

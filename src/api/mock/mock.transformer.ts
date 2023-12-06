@@ -11,7 +11,7 @@ const payloadKeys = [
 export const mockParamsTransformer = (payload: MockDTO) => {
     const result: Partial<MockDTO> = {};
     const keys = Object.keys(payload)
-    
+
     payloadKeys.forEach(r => {
         if (keys.includes(r)) {
             const value = {...payload}[r]

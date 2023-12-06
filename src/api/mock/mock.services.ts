@@ -5,12 +5,11 @@ import { mockParamsTransformer } from "./mock.transformer";
 
 const api = new AlphavantageApi();
 
-
-
 export const GetUsTradedSrv = async (payload: MockDTO) => {
     const { data } = await api.getTickerUnitedStates(mockParamsTransformer(payload));
-    const dataKeys = Object.keys(data)
-    let metadataIndex = '', timeSeriesDataIndex = '';
+    const dataKeys = Object.keys(data);
+    let metadataIndex = ''
+    let timeSeriesDataIndex = '';
 
     dataKeys.forEach((r) => {
         if (r === 'Meta Data') {
@@ -20,13 +19,13 @@ export const GetUsTradedSrv = async (payload: MockDTO) => {
         }
     })
 
-    const timeSeries = data[timeSeriesDataIndex] as unknown as ITimeSeries 
+    const timeSeries = data[timeSeriesDataIndex] as unknown as ITimeSeries
     const timeSeriesKeys = Object.keys(timeSeries);
     const result: ITransformUSTradeOutput = {
         meta_data: data[metadataIndex] as unknown as IMetaData,
         time_series: timeSeriesKeys.map((r, index)=> {
             const timeSeriesValue = timeSeries[r];
-            
+
             return {
                 value: timeSeriesValue,
                 date: r,
@@ -34,6 +33,6 @@ export const GetUsTradedSrv = async (payload: MockDTO) => {
             } as unknown as ITransformTimeSeries
         })
     };
-    
+
     return result;
 }

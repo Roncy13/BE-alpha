@@ -85,7 +85,7 @@ export const MockSchema: Schema = {
             return Promise.reject(err);
           }
         }
-        
+
         return month;
       }
     }
